@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu regalo</title>
+  <style>
+    :root {
+      --bg: #f9f5f7;
+      --card-bg: #ffffff;
+      --text: #333;
+      --accent: #e66baa;
+      --accent-hover: #d75b9b;
+      --max-width: 500px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px 25px;
+      max-width: var(--max-width);
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6rem;
+      margin-bottom: 30px;
+    }
+
+    a.download-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    a.download-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ajustes pequeños para pantallas muy estrechas */
+    @media (max-width: 400px) {
+      h1 { font-size: 1.7rem; }
+      p { font-size: 1rem; }
+      a.download-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Diario de un enamorado</h1>
+    <h2>By: Mario Lozano</h2>
+    <p>
+      Espero que disfrutes leyendo un pedacito de mi mente<br>
+      Toca el botón para descargarlo. ❤️
+    </p>
+
+    <!-- Sustituye AQUÍ_TU_ENLACE con tu enlace de Drive/iCloud -->
+    <a class="download-btn" href="http://google.com" download>Descargar ePub</a>
+  </div>
+</body>
+</html>
