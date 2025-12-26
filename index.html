@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tu regalo</title>
+  <title>Acceso Protegido</title>
   <style>
     :root {
       --bg: #f9f5f7;
@@ -50,20 +50,37 @@
       margin-bottom: 30px;
     }
 
-    a.download-btn {
+    input[type="password"] {
+      padding: 12px 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button {
       display: inline-block;
-      padding: 15px 25px;
+      padding: 12px 25px;
       background: var(--accent);
       color: white;
-      text-decoration: none;
+      border: none;
       border-radius: 10px;
       font-size: 1.1rem;
       font-weight: 600;
+      cursor: pointer;
       transition: background 0.2s ease;
     }
 
-    a.download-btn:hover {
+    button:hover {
       background: var(--accent-hover);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: red;
     }
 
     @keyframes fadeIn {
@@ -71,13 +88,49 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Ajustes pequeños para pantallas muy estrechas */
-    @media (max-width: 400px) {
-      h1 { font-size: 1.7rem; }
-      p { font-size: 1rem; }
-      a.download-btn {
-        padding: 12px 20px;
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .card {
+        padding: 25px 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
         font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      input[type="password"] {
+        font-size: 0.95rem;
+        padding: 10px 15px;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      input[type="password"] {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      button {
+        font-size: 0.95rem;
+        padding: 10px 18px;
       }
     }
   </style>
@@ -85,15 +138,29 @@
 
 <body>
   <div class="card">
-    <h1>Diario de un enamorado</h1>
-    <h2>By: Mario Lozano</h2>
+    <h1>Acceso Protegido al Archivo</h1>
     <p>
-      Espero que disfrutes leyendo un pedacito de mi mente<br>
-      Toca el botón para descargarlo. ❤️
+      Por favor, ingresa la contraseña para descargar el archivo.<br>
+      Si no tienes la contraseña, contáctame.
     </p>
 
-    <!-- Sustituye AQUÍ_TU_ENLACE con tu enlace de Drive/iCloud -->
-    <a class="download-btn" href="http://google.com" download>Descargar ePub</a>
+    <input type="password" id="contraseña" placeholder="Contraseña" />
+    <button onclick="verificarContraseña()">Acceder</button>
+
+    <div id="mensaje" class="message"></div>
   </div>
+
+  <script>
+    function verificarContraseña() {
+      var contraseña = document.getElementById('contraseña').value;
+      var contraseñaCorrecta = '04/01/2025'; // Cambia esta por la contraseña real
+
+      if (contraseña === contraseñaCorrecta) {
+        window.location.href = 'download.html'; // URL del archivo a descargar
+      } else {
+        document.getElementById('mensaje').innerText = 'Contraseña incorrecta. Intenta de nuevo.';
+      }
+    }
+  </script>
 </body>
 </html>
